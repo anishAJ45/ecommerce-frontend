@@ -73,7 +73,7 @@ export default function Orders() {
         className="mb-6 py-2 px-4 bg-amber-900 text-white rounded-lg shadow hover:bg-amber-700 transition"
         onClick={placeOrder}
       >
-        Place Test Order
+        Place Order
       </button>
 
       {orders.length === 0 ? (
