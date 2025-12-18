@@ -24,7 +24,7 @@ export default function Admin() {
     try {
       const token = sessionStorage.getItem("token");
 
-      const res = await fetch("http://localhost:3000/products", {
+      const res = await fetch("https://ecommerce-backend-1-byr1.onrender.com/products", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

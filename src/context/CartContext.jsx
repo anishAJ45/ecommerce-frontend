@@ -14,7 +14,7 @@ export function CartProvider({ children }) {
     if (!userId) return setCartItems([]);
     try {
       setLoading(true);
-      const res = await fetch(`http://localhost:3000/cart/${userId}`, {
+      const res = await fetch(`https://ecommerce-backend-1-byr1.onrender.com/cart/${userId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -46,7 +46,7 @@ export function CartProvider({ children }) {
   const addToCart = async (productId, quantity = 1) => {
     if (!userId) return alert("Please login first!");
     try {
-      await fetch("http://localhost:3000/cart/add", {
+      await fetch("https://ecommerce-backend-1-byr1.onrender.com/cart/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -64,7 +64,7 @@ export function CartProvider({ children }) {
     const item = cartItems.find((c) => c.id === cartItemId);
     if (!item) return;
     try {
-      await fetch("http://localhost:3000/cart/update", {
+      await fetch("https://ecommerce-backend-1-byr1.onrender.com/cart/update", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -82,7 +82,7 @@ export function CartProvider({ children }) {
     const item = cartItems.find((c) => c.id === cartItemId);
     if (!item || item.quantity <= 1) return;
     try {
-      await fetch("http://localhost:3000/cart/update", {
+      await fetch("https://ecommerce-backend-1-byr1.onrender.com/cart/update", {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
@@ -98,7 +98,7 @@ export function CartProvider({ children }) {
 
   const removeItem = async (cartItemId) => {
     try {
-      await fetch("http://localhost:3000/cart/remove", {
+      await fetch("https://ecommerce-backend-1-byr1.onrender.com/cart/remove", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",
@@ -114,7 +114,7 @@ export function CartProvider({ children }) {
 
   const clearCart = async () => {
     try {
-      await fetch(`http://localhost:3000/cart/clear/${userId}`, {
+      await fetch(`https://ecommerce-backend-1-byr1.onrender.com/cart/clear/${userId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });

@@ -1,11 +1,14 @@
-import { Navigate } from "react-router";
+import { Navigate, useLocation } from "react-router";
 
 export default function ProtectedRoute({ children }) {
-  const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+  
+  const location = useLocation();
 
-  if (isLoggedIn !== "true") {
-    return <Navigate to="/login" replace />;
-  }
+  // ProtectedRoute.jsx
+const token = localStorage.getItem("token");
+if (!token)
+  return <Navigate to="/login" replace state={{ from: location }} />;
+
 
   return children;
 }
